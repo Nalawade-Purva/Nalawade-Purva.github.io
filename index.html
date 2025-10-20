@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nalawade-Purva - Access Granted</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'VT323', monospace; /* Hacker-style monospace font */
+            background-color: #0d0d0d; /* Darkest background */
+            color: #00ff00; /* Classic green hacker text */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Prevent scrollbar from animation */
+            position: relative;
+            font-size: 1.1em; /* Slightly larger base font for body text */
+        }
+
+        /* Subtle Background Grid/Matrix Effect */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(0deg, transparent, transparent 1px, #1a1a1a 1px, #1a1a1a 2px),
+                repeating-linear-gradient(90deg, transparent, transparent 1px, #1a1a1a 1px, #1a1a1a 2px);
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        /* Main Container for Content */
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent dark background for content */
+            padding: 40px 60px;
+            border-radius: 8px;
+            border: 1px solid #00ff00; /* Green border for hacker look */
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), inset 0 0 5px rgba(0, 255, 0, 0.3); /* Green glow */
+            max-width: 900px;
+            width: 90%;
+            position: relative;
+            z-index: 1; /* Ensure content is above background effects */
+        }
+
+        h1 {
+            color: #00ffff; /* Cyan for main heading */
+            margin-bottom: 20px;
+            font-size: 3em; /* Increased from 2.5em */
+            text-shadow: 0 0 8px #00ffff; /* Cyan glow */
+        }
+
+        p {
+            font-size: 1.2em; /* Increased from 1.1em */
+            margin-bottom: 30px;
+            line-height: 1.5;
+            color: #00cc00; /* Lighter green for regular text */
+        }
+
+        /* Options for Portfolios */
+        .options {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap; /* Allows wrapping on smaller screens */
+        }
+
+        .option-card {
+            background-color: rgba(10, 10, 10, 0.8); /* Darker, slightly transparent card background */
+            padding: 25px;
+            border-radius: 6px;
+            width: 320px;
+            border: 1px solid #00ff00; /* Green border for cards */
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.3), inset 0 0 3px rgba(0, 255, 0, 0.2); /* Subtle green glow for cards */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .option-card:hover {
+            transform: translateY(-8px); /* Lift effect on hover */
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.7), inset 0 0 8px rgba(0, 255, 0, 0.5); /* Stronger green glow on hover */
+            border-color: #00ffff; /* Change border color to cyan on hover */
+        }
+
+        .option-card h2 {
+            color: #00ffff; /* Cyan for card titles */
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 2em; /* Increased from 1.8em */
+            text-shadow: 0 0 5px #00ffff; /* Cyan glow for titles */
+        }
+
+        .option-card p {
+            font-size: 1.1em; /* Increased from 1em */
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #00cc00; /* Green for card text */
+        }
+
+        .option-card .button {
+            display: inline-block;
+            background-color: #008000; /* Darker green button */
+            color: #00ffff; /* Cyan text for button */
+            padding: 12px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border: 1px solid #00ff00; /* Green button border */
+            box-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Button glow */
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1em; /* Increased from default */
+        }
+
+        .option-card .button:hover {
+            background-color: #00b300; /* Lighter green on hover */
+            color: #ffffff; /* White text on hover */
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.9); /* Stronger glow on hover */
+        }
+
+        .footer-text {
+            margin-top: 40px;
+            font-size: 1em; /* Increased from 0.9em */
+            color: #009900; /* Slightly dimmer green for footer */
+            text-shadow: 0 0 2px #00ff00; /* Subtle green glow */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .options {
+                flex-direction: column;
+                align-items: center;
+            }
+            .option-card {
+                width: 85%; /* Adjust width for better mobile fit */
+            }
+            .container {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 2.2em; /* Adjusted for smaller screens */
+            }
+            p {
+                font-size: 1.1em; /* Adjusted for smaller screens */
+            }
+            .option-card h2 {
+                font-size: 1.8em; /* Adjusted for smaller screens */
+            }
+            .option-card p {
+                font-size: 1em; /* Adjusted for smaller screens */
+            }
+            .option-card .button {
+                font-size: 1em; /* Adjusted for smaller screens */
+            }
+            .footer-text {
+                font-size: 0.9em; /* Adjusted for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ACCESS GRANTED: Purva Nalawade Directory</h1>
+        <p>Please select your preferred interface to proceed. Authorized users only.</p>
+        <div class="options">
+            <a href="https://nalawade-purva.github.io/portfolio/" target="_blank" class="option-card">
+                <h2>[ TERMINAL_MODE ]</h2>
+                <p>Engage with my projects via a simulated command-line interface. For a raw, interactive experience.</p>
+                <span class="button"> &gt; start_terminal() </span>
+            </a>
+            <a href="https://sites.google.com/sakec.ac.in/purva-nalawade/" target="_blank" class="option-card">
+                <h2>[ GUI_INTERFACE ]</h2>
+                <p>A graphical user interface for a comprehensive and visually-driven overview of my work.</p>
+                <span class="button"> &gt; launch_gui() </span>
+            </a>
+        </div>
+        <p class="footer-text">_STATUS: Awaiting user input_</p>
+    </div>
+</body>
+</html>
